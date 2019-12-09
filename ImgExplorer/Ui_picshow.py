@@ -43,14 +43,11 @@ class Ui_MainWindow(object):
         self.grid_layout.addWidget(self.picshow, 0, 1, 4, 1)
 
         MainWindow.setCentralWidget(self.centralWidget)
-
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "H5图像浏览器——神经网络和深度学习 - 第二周作业"))
         self.zoomout.setText(_translate("MainWindow", "放大"))
         self.zoomin.setText(_translate("MainWindow", "缩小"))

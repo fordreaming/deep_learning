@@ -25,8 +25,13 @@ class Ui_MainWindow(object):
         self.line_edit = QtWidgets.QLineEdit()
         self.line_edit.setObjectName("line_edit")
 
+        self.pushBtn = QtWidgets.QPushButton()
+        self.pushBtn.setObjectName("push button")
+        self.pushBtn.setText("image show")
+
         self.horizontalLayout.addWidget(self.label)
         self.horizontalLayout.addWidget(self.line_edit)
+        self.horizontalLayout.addWidget(self.pushBtn)
 
         self.grid_layout.addLayout(self.horizontalLayout, 0, 0)
 

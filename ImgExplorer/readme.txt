@@ -1,4 +1,5 @@
-本工程是基于吴恩达深度学习课后习题进行开发的。课程1 - 神经网络和深度学习、第2周 具有神经网络思维的Logistic回归
-功能：用于浏览train_catvnoncat.h5中的文件。
+this project is developed based on deep learning course by Andrew Y.Ng
+course 1 week 2 the Logistic regression by neural network
+function: image explorer of the files in train_catvnoncat.h5
 
     

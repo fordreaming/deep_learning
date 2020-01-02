@@ -11,7 +11,6 @@ class Ui_MainWindow(object):
         self.grid_layout = QtWidgets.QGridLayout(self.centralWidget)
         self.grid_layout.setObjectName("grid_layout")
 
-        # //设置第一列和第二列的比例
         self.grid_layout.setColumnStretch(0, 1)
         self.grid_layout.setColumnStretch(1, 4)
 
@@ -53,6 +52,6 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "H5图像浏览器——神经网络和深度学习 - 第二周作业"))
-        self.zoomout.setText(_translate("MainWindow", "放大"))
-        self.zoomin.setText(_translate("MainWindow", "缩小"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "H5 image explore deep learning"))
+        self.zoomout.setText(_translate("MainWindow", "zoom out"))
+        self.zoomin.setText(_translate("MainWindow", "zoom in"))

@@ -13,14 +13,13 @@ class picturezoom(QMainWindow, Ui_MainWindow):
         self.scene = QGraphicsScene()                           # 创建场景
         self.item = 0
         self.train_set_x_orig, self.train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
-        # self.line_edit.textChanged.connect(self.on_line_edit_textChanged)
-        self.pushBtn.clicked.connect(self.on_line_edit_textChanged)
+        self.pushBtn.clicked.connect(self.on_img_show_clicked)
 
     @pyqtSlot()
     def on_zoomin_clicked(self):
         self.zoomscale = self.zoomscale - 0.05
-        if self.zoomscale <= 0:
-            self.zoomscale = 0.2
+        if self.zoomscale <= 0.1:
+            self.zoomscale = 0.1
         self.item.setScale(self.zoomscale)  # 缩小图像
 
     @pyqtSlot()
@@ -31,7 +30,7 @@ class picturezoom(QMainWindow, Ui_MainWindow):
         self.item.setScale(self.zoomscale)  # 放大图像
 
     @pyqtSlot()
-    def on_line_edit_textChanged(self):
+    def on_img_show_clicked(self):
         index_str = self.line_edit.text()
         self.line_edit.setText(index_str)
         index = int(index_str)
@@ -48,6 +47,7 @@ class picturezoom(QMainWindow, Ui_MainWindow):
         pix = QPixmap.fromImage(frame)
         self.item = QGraphicsPixmapItem(pix)        # 创建像素图元
         self.scene.removeItem(self.item)
+        self.scene.clear()
         self.scene.addItem(self.item)
         self.picshow.setScene(self.scene)           # 将场景添加至视图
 

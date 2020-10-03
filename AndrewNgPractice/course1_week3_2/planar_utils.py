@@ -55,3 +55,31 @@ def load_extra_datasets():
     no_structure = np.random.rand(N, 2), np.random.rand(N, 2)
 
     return noisy_circles, noisy_moons, blobs, gaussian_quantiles, no_structure
+
+
+if __name__ == '__main__':
+    X, Y = load_planar_dataset()
+    plt.scatter(X[0, :], X[1, :], c=np.squeeze(Y), s=40, cmap=plt.cm.Spectral) #绘制散点图
+    # plt.show()
+
+    shape_X = X.shape
+    shape_Y = Y.shape
+    m = Y.shape[1]  # 训练集里面的数量
+
+    print("X的维度为: " + str(shape_X))
+    print("Y的维度为: " + str(shape_Y))
+    print("数据集里面的数据有：" + str(m) + " 个")
+
+    clf = sklearn.linear_model.LogisticRegressionCV()
+    clf.fit(X.T, Y.T)
+
+    plot_decision_boundary(lambda x: clf.predict(x), X, Y)  # 绘制决策边界
+    plt.title("Logistic Regression")  # 图标题
+    plt.show()
+    LR_predictions = clf.predict(X.T)  # 预测结果
+    print("逻辑回归的准确性： %d " % float((np.dot(Y, LR_predictions) +
+                                   np.dot(1 - Y, 1 - LR_predictions)) / float(Y.size) * 100) +
+          "% " + "(正确标记的数据点所占的百分比)")
+
+
+
